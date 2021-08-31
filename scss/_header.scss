@@ -1,0 +1,147 @@
+/*----------header----------*/
+.header {
+    position: relative;
+    overflow: hidden;
+
+    &__icon {
+        padding-left: 25px;
+        display: inline-block;
+
+        @include mq($max-width: 992px) {
+            padding-left: 0;
+        }
+    }
+}
+
+.top-header {
+    background: #0F3324;
+    font-family: 'Akzidenz-Grotesk BQ';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.25px;
+    color: $main_color;
+
+    &__center {
+        height: 40px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__link {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        @include mq($max-width: 767px) {
+            display: none;
+        }
+    }
+}
+
+
+.center-header {
+    height: 80px;
+    align-items: center;
+    display: flex;
+}
+
+
+.nav {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: $second_color;
+
+    @include mq($max-width: 992px) {
+        display: none;
+    }
+
+    &__trigger {
+        display: none;
+        background: none;
+        border: none;
+
+        @include mq($max-width: 992px) {
+            display: block;
+        }
+    }
+
+    &__trigger-close {
+        display: none;
+    }
+
+    &__trigger.active .nav__trigger-close {
+        display: inline-block;
+    }
+
+    &__trigger.active .nav__trigger-open {
+        display: none;
+    }
+
+    ul {
+        display: flex;
+        justify-content: center;
+
+        li {
+            padding: 0 15px;
+
+            a {
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    &__mobile {
+        background: $main_color;
+        text-align: center;
+        border-top: 1px solid #ebebeb;
+        overflow: hidden;
+        max-height: 0;
+        transition: 0.4s ease all;
+
+        a {
+            display: block;
+            width: 100%;
+            padding: 15px 30px;
+            font-size: 16px;
+            text-decoration: none;
+            border-bottom: 1px solid #ebebeb;
+        }
+
+        &.active {
+            @include mq($max-width: 992px) {
+                max-height: 1000px;
+            }
+        }
+    }
+
+}
+
+@include mq($max-width: 992px) {
+    .logo {
+        display: block;
+        text-align: center;
+
+        img {
+            width: 110px;
+        }
+    }
+}
+
+/*----------end-header----------*/
